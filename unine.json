@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "type" : "directory",
+      "name" : "Import directory",
+      "description" : "Directory storing old files",
+      "entry_point" : "/home/schaetti/Projets/TURING/Datasets/PoliticalTexts/text4/texts/brut_texts/speeches-and-remarks/president/english",
+      "title_selector" : "<TITLE>(.*)</TITLE>",
+      "date_selector" : "<DATE>(.*)</DATE>",
+      "date_format" : "%d/%M/%Y",
+      "text_selector" : "<BODY>(.*)</BODY>",
+      "url_selector" : "<URL>(.*)</URL>",
+      "speaker_selector" : "<SPEAKER>(.*)</SPEAKER>",
+      "language_selector" : "<LANGUAGE>(.*)</LANGUAGE>",
+      "file_regex" : "[0-9]+",
+      "speaker" : "Barack Obama",
+      "language" : "english"
+    }]
+}
