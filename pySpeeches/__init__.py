@@ -25,5 +25,5 @@ from .cleaning import *
 from .dataset import *
 from .downloader import *
 from .importer import *
-from .io import *
+import io as psio
 from .patterns import *
