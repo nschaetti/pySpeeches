@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/__init__.py
+# File : pySpeeches/__init__.py
 # Description : Init file for core directory.
 # Date : 20th of February 2017
 #

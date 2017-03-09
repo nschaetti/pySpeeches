@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesConfig.py
-# Description : .
+# File : pySpeeches/dataset/PySpeechesDocument.py
+# Description : A document.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can

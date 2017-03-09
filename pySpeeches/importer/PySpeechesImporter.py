@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesImporter.py
+# File : pySpeeches/importer/PySpeechesImporter.py
 # Description : Base class to the importers.
 # Date : 20th of February 2017
 #

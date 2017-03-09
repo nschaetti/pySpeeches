@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesImporter.py
-# Description : Base class to the importers.
+# File : pySpeeches/patterns/__init__.py
+# Description : Patterns init file.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can

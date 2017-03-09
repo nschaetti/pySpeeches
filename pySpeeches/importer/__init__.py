@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/__init__.py
-# Description : Init file for download functions.
+# File : pySpeeches/importer/__init__.py
+# Description : Init file for importers classes and functions.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesDirectoryImproter.py
+# File : pySpeeches/importer/PySpeechesDirectoryImproter.py
 # Description : Class to import file recursively in a directory.
 # Date : 20th of February 2017
 #

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/dataset/__init__.py
-# Description : Init file for dataset function and objects.
+# File : pySpeeches/dataset/__init__.py
+# Description : Init file for data set functions and classes.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can

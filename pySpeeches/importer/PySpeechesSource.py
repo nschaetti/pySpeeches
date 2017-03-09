@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesSource.py
+# File : pySpeeches/importer/PySpeechesSource.py
 # Description : Object to read config file and get sources.
 # Date : 20th of February 2017
 #

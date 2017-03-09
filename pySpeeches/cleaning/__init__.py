@@ -23,5 +23,5 @@
 # Import package
 from .cleaning_functions import *
 from .PyCleaner import *
-from .PyWhiteHouseCleaner import *
-from .PyMillerCenterCleaner import *
+from .PySpeechesWhiteHouseCleaner import *
+from .PySpeechesMillerCenterCleaner import *

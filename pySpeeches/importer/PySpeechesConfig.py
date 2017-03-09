@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesConfig.py
+# File : pySpeeches/importer/PySpeechesConfig.py
 # Description : .
 # Date : 20th of February 2017
 #

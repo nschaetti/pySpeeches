@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesDirectoryImproter.py
-# Description : Class to import file recursively in a directory.
+# File : pySpeeches/importer/PySpeechesTextFileImproter.py
+# Description : Class to import a text file.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can

@@ -21,7 +21,6 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Import package
-# Import package
 
 
 # An Author

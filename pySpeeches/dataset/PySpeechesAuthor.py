@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/downloader/PySpeechesConfig.py
-# Description : .
+# File : pySpeeches/dataset/PySpeechesAuthors.py
+# Description : An author.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can
@@ -21,7 +21,7 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Import package
-from core.dataset.PySpeechesDocumentCollection import PySpeechesDocumentCollection
+from .PySpeechesDocumentCollection import *
 
 
 # An Author

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/io/__init__.py
+# File : pySpeeches/io/__init__.py
 # Description : Init file for IO functions.
 # Date : 20th of February 2017
 #
