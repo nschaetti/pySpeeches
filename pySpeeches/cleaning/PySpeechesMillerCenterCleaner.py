@@ -22,11 +22,11 @@
 
 # Import package
 from .cleaning_functions import *
-from .PyCleaner import *
+from .PySpeechesCleaner import *
 
 
 # An Author
-class PyMillerCenterCleaner(PyCleaner):
+class PyMillerCenterCleaner(PySpeechesCleaner):
 
     # Constructor
     def __init__(self):

@@ -24,7 +24,7 @@
 
 
 # An Author
-class PyCleaner:
+class PySpeechesCleaner:
 
     # Constructor
     def __init__(self):
