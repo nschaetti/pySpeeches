@@ -20,8 +20,9 @@
 #
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
-from PySpeechesConfig import PySpeechesConfig
-from PySpeechesDirectoryImporter import PySpeechesDirectoryImporter
-from PySpeechesImporter import PySpeechesImporter
-from PySpeechesSource import PySpeechesSource
-from PySpeechesMillerCenterImporter import PySpeechesMillerCenterImporter
+from .PySpeechesConfig import *
+from .PySpeechesDirectoryImporter import *
+from .PySpeechesImporter import *
+from .PySpeechesMillerCenterImporter import *
+from .PySpeechesSource import *
+from .PySpeechesTextFileImporter import *
