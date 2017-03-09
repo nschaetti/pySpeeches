@@ -28,15 +28,15 @@ from .PySpeechesDocumentCollection import *
 class PySpeechesAuthor(PySpeechesDocumentCollection):
 
     # Constructor
-    def __init__(self, author_name):
+    def __init__(self, author_name, properties=dict()):
         """
         Constructor
         :param name:
         """
-        print("Author : " + author_name)
         super(PySpeechesAuthor, self).__init__(name=author_name)
         # Properties
         self._author_name = unicode(author_name)
+        self._properties = properties
     # end __init__
 
     ###############################
@@ -51,6 +51,16 @@ class PySpeechesAuthor(PySpeechesDocumentCollection):
         """
         return self._author_name
     # end get_name
+
+    # Get author property's value
+    def get_author_property(self, key):
+        """
+        Get author property's value.
+        :param key: Property's key.
+        :return: Property's value.
+        """
+        return self._properties[key]
+    # end get_author_property
 
 # end PySpeechesAuthor"""
 

@@ -33,7 +33,7 @@ class PyWhiteHouseCleaner(PySpeechesCleaner):
         """
         Constructor.
         """
-        pass
+        super(PyWhiteHouseCleaner, self).__init__()
     # end __init__
 
     # Clean text

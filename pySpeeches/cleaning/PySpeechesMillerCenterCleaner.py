@@ -33,7 +33,7 @@ class PyMillerCenterCleaner(PySpeechesCleaner):
         """
         Constructor.
         """
-        pass
+        super(PyMillerCenterCleaner, self).__init__()
     # end __init__
 
     # Clean text

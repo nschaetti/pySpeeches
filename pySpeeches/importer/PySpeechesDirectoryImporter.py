@@ -30,9 +30,16 @@ from .PySpeechesTextFileImporter import *
 # Import a directory recursively
 class PySpeechesDirectoryImporter(PySpeechesImporter):
 
+    # Constructor
+    def __init__(self, source, text_cleaner, file_importer):
+        # Super
+        super(PySpeechesDirectoryImporter, self).__init__(source, text_cleaner)
+        self._file_importer = file_importer
+    # end __init__
+
     # Import text file
     def _import_text_file(self, filename):
-        document = PySpeechesTextFileImporter(self._source)
+        document = self._file_importer(self._source, self._text_cleaner)
         document.import_source(file_name=filename)
     # end _import_text_file
 

@@ -22,12 +22,8 @@
 
 # Import package
 import argparse
-import os
-import datetime
-from core.importer.PySpeechesConfig import PySpeechesConfig
-from core.importer.PySpeechesDirectoryImporter import PySpeechesDirectoryImporter
-from core.importer.PySpeechesMillerCenterImporter import PySpeechesMillerCenterImporter
-from core.dataset.PySpeechesCorpus import PySpeechesCorpus
+from pySpeeches.importer import *
+from pySpeeches.dataset import *
 
 ########################################
 # FUNCTIONS
@@ -81,7 +77,7 @@ if __name__ == "__main__":
             # Source type
             importer = None
             if source.get_type() == "directory":
-                importer = PySpeechesDirectoryImporter(source)
+                importer = PySpeechesDirectoryImporter(source, PySpeechesTextFileImporter)
             elif source.get_type() == "PySpeechesMillerCenterImporter":
                 importer = PySpeechesMillerCenterImporter(source)
             # end if

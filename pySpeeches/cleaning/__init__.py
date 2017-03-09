@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : core/cleaning/__init__.py
-# Description : Init file for cleaning functions.
+# File : pySpeeches/cleaning/__init__.py
+# Description : Init file for cleaning functions and classes.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can
@@ -22,6 +22,6 @@
 
 # Import package
 from .cleaning_functions import *
-from .PyCleaner import *
+from .PySpeechesCleaner import *
 from .PySpeechesWhiteHouseCleaner import *
 from .PySpeechesMillerCenterCleaner import *

@@ -107,6 +107,11 @@ Q_PATTERN = '\nQ[ :]'
 #
 OTHER_PATTERN = "(([A-Z.'\- ]|Mc)+:|\nQ )"
 
+#
+# Regex for URL
+#
+URL_PATTERN = "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"
+
 
 # Utility function
 class PyCleaningTool:
@@ -500,6 +505,18 @@ class PyCleaningTool:
         text = re.sub("([.?!,:;])([\w\-']+)", '\g<1> \g<2>', text)
         return text
     # end space_between_each_word
+
+    # Remove URLs
+    @staticmethod
+    def remove_urls(text):
+        """
+        Remove URLs
+        :param text: Text to clean
+        :return: Cleaned text.
+        """
+        text = re.sub(URL_PATTERN, "", text)
+        return text
+    # end remove_urls
 
     # Apply cleaning functions to global text
     @staticmethod

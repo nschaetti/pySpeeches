@@ -23,7 +23,7 @@
 # Import package
 import json
 from .PySpeechesImporter import *
-from pySpeeches.cleaning.PyMillerCenterCleaner import *
+from pySpeeches.cleaning.PySpeechesMillerCenterCleaner import *
 from pySpeeches.importer.PySpeechesConfig import *
 from pySpeeches.dataset.PySpeechesDocument import *
 from pySpeeches.downloader.PySpeechesMillerCenterDownloader import *

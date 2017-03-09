@@ -26,3 +26,4 @@ from .PySpeechesImporter import *
 from .PySpeechesMillerCenterImporter import *
 from .PySpeechesSource import *
 from .PySpeechesTextFileImporter import *
+from .PySpeechesXMLFileImporter import *

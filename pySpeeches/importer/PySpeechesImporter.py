@@ -22,11 +22,12 @@
 
 
 # Importer base class
-class PySpeechesImporter:
+class PySpeechesImporter(object):
 
     # Constructor
-    def __init__(self, source):
+    def __init__(self, source, text_cleaner):
         self._source = source
+        self._text_cleaner = text_cleaner
     # end __init__
 
     # Import the source
