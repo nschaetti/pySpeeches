@@ -20,4 +20,4 @@
 #
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
-from core.patterns.Singleton import Singleton
+from .Singleton import *
