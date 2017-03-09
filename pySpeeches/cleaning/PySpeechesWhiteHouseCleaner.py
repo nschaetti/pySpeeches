@@ -21,8 +21,8 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Import package
-from core.cleaning.cleaning_functions import PyCleaningTool
-from core.cleaning.PyCleaner import PyCleaner
+from .cleaning_functions import *
+from .PyCleaner import *
 
 
 # An Author

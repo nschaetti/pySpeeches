@@ -22,11 +22,11 @@
 
 # Import package
 import json
-from PySpeechesImporter import PySpeechesImporter
-from core.cleaning.PyMillerCenterCleaner import PyMillerCenterCleaner
-from core.importer.PySpeechesConfig import PySpeechesConfig
-from core.dataset.PySpeechesDocument import PySpeechesDocument
-from core.downloader.PySpeechesMillerCenterDownloader import PySpeechesMillerCenterDownloader
+from .PySpeechesImporter import *
+from pySpeeches.cleaning.PyMillerCenterCleaner import *
+from pySpeeches.importer.PySpeechesConfig import *
+from pySpeeches.dataset.PySpeechesDocument import *
+from pySpeeches.downloader.PySpeechesMillerCenterDownloader import *
 from dateutil.parser import parse
 from datetime import datetime
 

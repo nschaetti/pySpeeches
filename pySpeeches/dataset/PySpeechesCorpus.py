@@ -21,8 +21,8 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Import package
-from core.dataset.PySpeechesDocumentCollection import PySpeechesDocumentCollection
-from core.dataset.PySpeechesAuthor import PySpeechesAuthor
+from .PySpeechesDocumentCollection import *
+from .PySpeechesAuthor import *
 
 
 # Read config file

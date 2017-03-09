@@ -17,6 +17,7 @@ setup(name='pySpeeches',
       license='GPL3',
       packages=['pySpeeches'],
       install_requires=[
+          'dateutil'
       ],
       include_package_data=True,
       zip_safe=False)

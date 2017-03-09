@@ -23,8 +23,8 @@
 # Import package
 import os
 import re
-from PySpeechesImporter import PySpeechesImporter
-from PySpeechesTextFileImporter import PySpeechesTextFileImporter
+from .PySpeechesImporter import *
+from .PySpeechesTextFileImporter import *
 
 
 # Import a directory recursively

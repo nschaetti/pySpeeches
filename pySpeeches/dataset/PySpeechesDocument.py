@@ -22,7 +22,7 @@
 
 # Import package
 import sys
-from PySpeechesDict import PySpeechesDict
+from .PySpeechesDict import *
 
 reload(sys)
 sys.setdefaultencoding('utf8')

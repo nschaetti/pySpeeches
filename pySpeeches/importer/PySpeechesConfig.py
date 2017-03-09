@@ -21,7 +21,7 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Import package
-from core.patterns.Singleton import Singleton
+from pySpeeches.patterns.Singleton import *
 from PySpeechesSource import PySpeechesSource
 import json
 import os

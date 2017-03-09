@@ -21,7 +21,7 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Import package
-from PySpeechesDict import PySpeechesDict
+from .PySpeechesDict import *
 import cPickle as pickle
 
 

@@ -21,13 +21,11 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Import package
-import re
 from dateutil.parser import parse
-from PySpeechesImporter import PySpeechesImporter
-from core.dataset.PySpeechesDocument import PySpeechesDocument
-from core.importer.PySpeechesConfig import PySpeechesConfig
-from core.cleaning.PyWhiteHouseCleaner import PyWhiteHouseCleaner
-import logging
+from .PySpeechesImporter import *
+from pySpeeches.dataset.PySpeechesDocument import *
+from pySpeeches.importer.PySpeechesConfig import *
+from pySpeeches.cleaning.PySpeechesWhiteHouseCleaner import *
 
 
 # Import a directory recursively
