@@ -77,6 +77,8 @@ class PySpeechesConfig:
                 file_regex = "" if 'file_regex' not in source else source['file_regex']
                 speaker = "" if 'speaker' not in source else source['speaker']
                 language = "" if 'language' not in source else source['language']
+                text_cleaner = "" if 'text_cleaner' not in source else source['text_cleaner']
+                dict_size = 1000000 if 'dict_size' not in source else source['dict_size']
 
                 # New source
                 sources += [PySpeechesSource(s_type=s_type, name=name, description=description, entry_point=entry_point,
@@ -84,7 +86,8 @@ class PySpeechesConfig:
                                              date_format=date_format, text_selector=text_selector,
                                              url_selector=url_selector, speaker_selector=speaker_selector,
                                              language_selector=language_selector, file_regex=file_regex,
-                                             speaker=speaker, language=language)]
+                                             speaker=speaker, language=language, text_cleaner=text_cleaner,
+                                             dict_size=dict_size)]
             # end for
 
         # end with

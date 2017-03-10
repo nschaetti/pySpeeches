@@ -216,6 +216,33 @@ class PyCleaningTool:
         return text
     # end remove_not_ending_dot
 
+    # Remove dots or comma from numbers
+    @staticmethod
+    def format_numbers(text):
+        """
+        Remove dots or comma from numbers
+        :param text: Text to clean.
+        :return: Cleaned text.
+        """
+        # Remove dots or comma from float numbers
+        """text = re.sub("(\d+)(\.|,|')(\d+)", '\g<1>\g<3>', text)
+        text = re.sub("(\d+)(\.|,|')(\d+)", '\g<1>\g<3>', text)
+        text = re.sub("(\d+)(\.|,|')(\d+)", '\g<1>\g<3>', text)"""
+        text = re.sub("(\d+)(\.)(\d+)(\.)(\d+)(\.)(\d+)(\.)(\d+)", ' § § § § ', text)
+        text = re.sub("(\d+)(\.)(\d+)(\.)(\d+)(\.)(\d+)", ' § § § ', text)
+        text = re.sub("(\d+)(\.)(\d+)(\.)(\d+)", ' § § ', text)
+        text = re.sub("(\d+)(\.)(\d+)", ' § ', text)
+        text = re.sub("(\d+)(,)(\d+)(,)(\d+)(,)(\d+)(,)(\d+)", ' $ $ $ $ ', text)
+        text = re.sub("(\d+)(,)(\d+)(,)(\d+)(,)(\d+)", ' $ $ $ ', text)
+        text = re.sub("(\d+)(,)(\d+)(,)(\d+)", ' $ $ ', text)
+        text = re.sub("(\d+)(,)(\d+)", ' $ ', text)
+        text = re.sub("(\d+)(')(\d+)(')(\d+)(')(\d+)(')(\d+)", ' # # # # ', text)
+        text = re.sub("(\d+)(')(\d+)(')(\d+)(')(\d+)", ' # # # ', text)
+        text = re.sub("(\d+)(')(\d+)(')(\d+)", ' # # ', text)
+        text = re.sub("(\d+)(')(\d+)", ' # ', text)
+        return text
+    # end format_numbers
+
     # Keep ASCII characters only
     @staticmethod
     def keep_ascii_characters_only(text):
@@ -276,6 +303,19 @@ class PyCleaningTool:
         """
         text = re.sub("(\W)#(\d+)", '\g<1> number \g<2>', text)
         text = re.sub("(\W)#(\w+)", '\g<1> hashtag \g<2>', text)
+        return text
+    # end replace_sharp_hashtag
+
+    # Remove sharp hash tag
+    @staticmethod
+    def remove_sharp_hash_tag(text):
+        """
+        Remove the sharp before a number as "number" and the sharp before combinations of letter and digit by "hashtag.
+        :param text: Text to clean.
+        :return: Cleaned text.
+        """
+        text = re.sub("(\W)#(\d+)", '\g<1> \g<2>', text)
+        text = re.sub("(\W)#(\w+)", '\g<1> \g<2>', text)
         return text
     # end replace_sharp_hashtag
 
@@ -431,6 +471,28 @@ class PyCleaningTool:
         """
         return re.sub('[ \t]+', ' ', text)
     # end many_spaces_to_one_space
+
+    # Replace many interrogations by one
+    @staticmethod
+    def many_interrogations_to_one(text):
+        """
+        Reduce many successive interrogations to one.
+        :param text: Text to clean.
+        :return: Cleaned text.
+        """
+        return re.sub('[\\?]+', '?', text)
+    # end many_interrogations_to_one
+
+    # Replace many exclamations by one
+    @staticmethod
+    def many_exclamations_to_one(text):
+        """
+        Reduce many successive exclamations to one.
+        :param text: Text to clean.
+        :return: Cleaned text.
+        """
+        return re.sub('[!]+', '!', text)
+    # end many_exclamations_to_one
 
     # Strip every lines from spaces
     @staticmethod

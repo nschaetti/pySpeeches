@@ -46,7 +46,9 @@ class PySpeechesDict:
         if token in self._dict.keys():
             self._dict[token] += 1
         else:
-            self._dict[token] = 1
+            if len(self._dict) < 10000:
+                self._dict[token] = 1
+            # end if
         # end if
     # end increment_token_count
 
@@ -61,7 +63,9 @@ class PySpeechesDict:
         if token in self._dict.keys():
             self._dict[token] += value
         else:
-            self._dict[token] = value
+            if len(self._dict) < 10000:
+                self._dict[token] = value
+            # end if
     # end add_to_token_count
 
     #############################

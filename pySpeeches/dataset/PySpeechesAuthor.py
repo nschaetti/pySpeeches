@@ -53,14 +53,25 @@ class PySpeechesAuthor(PySpeechesDocumentCollection):
     # end get_name
 
     # Get author property's value
-    def get_author_property(self, key):
+    def get_property(self, key):
         """
         Get author property's value.
         :param key: Property's key.
         :return: Property's value.
         """
         return self._properties[key]
-    # end get_author_property
+    # end get_property
+
+    # Set author property's value
+    def set_property(self, key, value):
+        """
+        Set author property's value.
+        :param key: Property's key.
+        :param value: Property's value.
+        :return: Property's value.
+        """
+        self._properties[key] = value
+    # end set_property
 
 # end PySpeechesAuthor"""
 

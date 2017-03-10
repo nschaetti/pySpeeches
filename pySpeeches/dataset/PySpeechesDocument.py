@@ -20,12 +20,13 @@
 #
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
-# Import package
 import sys
-from .PySpeechesDict import *
 
 reload(sys)
 sys.setdefaultencoding('utf8')
+
+# Import package
+from .PySpeechesDict import PySpeechesDict
 
 
 # A document
