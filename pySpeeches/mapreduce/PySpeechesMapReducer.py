@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# File : pySpeeches/__init__.py
-# Description : Init file for core directory.
+# File : pySpeeches/dataset/__init__.py
+# Description : Init file for data set functions and classes.
 # Date : 20th of February 2017
 #
 # This file is part of pySpeeches.  pySpeeches is free software: you can
@@ -20,10 +20,22 @@
 #
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
-# Import
-from .cleaning import *
-from .dataset import *
-from .downloader import *
-from .importer import *
-from .patterns import *
-from .mapreduce import *
+
+class PySpeechesMapReducer(object):
+
+    # Constructor
+    def __init__(self):
+        pass
+    # end __init__
+
+    # Map the data
+    def map(self, data):
+        pass
+    # end map
+
+    # Reduce the data
+    def reduce(self, data_array):
+        pass
+    # end reduce
+
+# end PySpeechesMapReducer

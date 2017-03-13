@@ -79,32 +79,30 @@ class PySpeechesCorpus(PySpeechesDocumentCollection):
     # end add_author
 
     # Add a document
-    def add_document(self, document):
+    def add_document(self, document, check_doublon=True):
         """
         Add a document to the data set.
         :param document:
         :return:
         """
         # Print info
-        if not self._document_exists(document):
-            print("Adding %s to document collection %s" % (document.get_title(), self._name))
-            print("\033[94mNb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, Nb authors : %-3d, "
-                  "Document Dictionary size : %-5d, Corpus Dictionary size : %-6d\033[0m" % (self.get_size(),
-                                                                                             self.get_n_tokens(),
-                                                                                             self.get_max_doc_id(),
-                                                                                             self.get_n_authors(),
-                                                                                             document.get_dictionary().get_size(),
-                                                                                             self.get_dictionary().get_size()))
+        if not check_doublon or not self._document_exists(document):
+            print("Adding %s to document collection %s with author %s" % (document.get_title(), self._name, document.get_author().get_name()))
+            print("\033[94mNb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, Nb authors : %-3d\033[0m"
+                  % (self.get_size(),
+                     self.get_n_tokens(),
+                     self.get_max_doc_id(),
+                     self.get_n_authors()))
         else:
             print("Already in the corpus %s" % (document.get_title()))
         # end if
 
         # Call PySpeechesDocumentCollection
-        PySpeechesDocumentCollection.add_document(self, document)
+        PySpeechesDocumentCollection.add_document(self, document, check_doublon)
 
         # Add author
         author = document.get_author()
-        author.add_document(document)
+        author.add_document(document, check_doublon=check_doublon)
     # end add_document
 
     ###########################################
@@ -121,7 +119,7 @@ class PySpeechesCorpus(PySpeechesDocumentCollection):
         for author in self._authors:
             if author.get_name() == name:
                 return author
-                # end if
+            # end if
         # end for
         return None
     # end get_author

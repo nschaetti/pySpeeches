@@ -79,6 +79,7 @@ class PySpeechesConfig:
                 language = "" if 'language' not in source else source['language']
                 text_cleaner = "" if 'text_cleaner' not in source else source['text_cleaner']
                 dict_size = 1000000 if 'dict_size' not in source else source['dict_size']
+                check_doublon = True if 'check_doublon' not in source else source['check_doublon']
 
                 # New source
                 sources += [PySpeechesSource(s_type=s_type, name=name, description=description, entry_point=entry_point,
@@ -87,7 +88,7 @@ class PySpeechesConfig:
                                              url_selector=url_selector, speaker_selector=speaker_selector,
                                              language_selector=language_selector, file_regex=file_regex,
                                              speaker=speaker, language=language, text_cleaner=text_cleaner,
-                                             dict_size=dict_size)]
+                                             check_doublon=check_doublon)]
             # end for
 
         # end with

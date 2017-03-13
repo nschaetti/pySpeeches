@@ -27,7 +27,7 @@ class PySpeechesSource:
     # Constructor
     def __init__(self, s_type, name, description, entry_point, links_selector=[], title_selector="", date_selector="",
                  date_format="%Y-%M-%dT%h:%m:%s", text_selector="", url_selector="", speaker_selector="",
-                 language_selector="", file_regex=[], speaker="", language="", text_cleaner="", dict_size=1000000):
+                 language_selector="", file_regex=[], speaker="", language="", text_cleaner="", check_doublon=True):
         """
 
         :param type:
@@ -62,7 +62,7 @@ class PySpeechesSource:
         self._speaker = speaker
         self._language = language
         self._text_cleaner = text_cleaner
-        self._dict_size = dict_size
+        self._check_doublon = check_doublon
     # end __init__
 
     # Get source's type
@@ -209,13 +209,13 @@ class PySpeechesSource:
         return self._text_cleaner
     # end get_text_cleaner
 
-    # Get dictionary max size
-    def get_dict_size(self):
+    # Get check double
+    def get_check_doublon(self):
         """
-        Get dictionary max size
-        :return: Dictionnary max size
+
+        :return:
         """
-        return self._dict_size
-    # end get_dict_size
+        return self._check_doublon
+    # end get_check_doublon
 
 # end PySpeechesSource

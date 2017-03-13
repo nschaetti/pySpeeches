@@ -28,7 +28,7 @@ from .PySpeechesDocumentCollection import *
 class PySpeechesAuthor(PySpeechesDocumentCollection):
 
     # Constructor
-    def __init__(self, author_name, properties=dict()):
+    def __init__(self, author_name, properties=None):
         """
         Constructor
         :param name:
@@ -36,7 +36,10 @@ class PySpeechesAuthor(PySpeechesDocumentCollection):
         super(PySpeechesAuthor, self).__init__(name=author_name)
         # Properties
         self._author_name = unicode(author_name)
-        self._properties = properties
+        if properties is None:
+            self._properties = dict()
+        else:
+            self._properties = properties
     # end __init__
 
     ###############################

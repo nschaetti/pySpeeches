@@ -22,6 +22,7 @@
 
 # Import package
 from .PySpeechesDict import *
+from pySpeeches.mapreduce.PySpeechesMapReducer import PySpeechesMapReducer
 import cPickle as pickle
 
 
@@ -38,7 +39,6 @@ class PySpeechesDocumentCollection(object):
         self._documents = []
         self._authors = []
         self._max_doc_id = 0
-        self._dictionary = PySpeechesDict()
         self._size = 0
         self._n_tokens = 0
         self._dict_size_history = []
@@ -104,14 +104,14 @@ class PySpeechesDocumentCollection(object):
     ###########################################
 
     # Add a document
-    def add_document(self, document):
+    def add_document(self, document, check_doublon=True):
         """
         Add a document to the data set.
         :param document:
         :return:
         """
         # If not in collection
-        if not self._document_exists(document):
+        if not check_doublon or not self._document_exists(document):
             # Increase max doc id
             if document.get_doc_id() > self._max_doc_id:
                 self._max_doc_id = document.get_doc_id()
@@ -123,11 +123,11 @@ class PySpeechesDocumentCollection(object):
             self._n_tokens += document.get_n_tokens()
 
             # Sort the collection
-            self.order_by_date()
+            #self.order_by_date()
 
             # Update dictionary
-            self._dictionary += document.get_dictionary()
-            self._dict_size_history += [self._dictionary.get_size()]
+            #self._dictionary += document.get_dictionary()
+            #self._dict_size_history += [self._dictionary.get_size()]
         # end if
     # end add_document
 
@@ -169,12 +169,12 @@ class PySpeechesDocumentCollection(object):
     # end get_document_by_ID
 
     # Get dictionary
-    def get_dictionary(self):
-        """
-
-        :return:
-        """
-        return self._dictionary
+    #def get_dictionary(self):
+    #    """
+    #
+    #    :return:
+    #    """
+    #    return self._dictionary
     # end dictionary
 
     # Get size
@@ -248,5 +248,24 @@ class PySpeechesDocumentCollection(object):
         """
         self._documents = sorted(self._documents, key=lambda doc: doc.get_date())
     # end order_by_date
+
+    ############################################
+    # MAP REDUCE FUNCTIONS
+    ############################################
+
+    # Map Reduce
+    def map(self, map_reducer):
+        """
+        Map reduce
+        :param map_reducer: The PySpeechesMapReducer object.
+        :return: The data computer by the PySpeechesMapReducer object.
+        """
+        data_list = []
+        # For each children
+        for child in self._documents:
+            data_list += [child.map(map_reducer)]
+        # end for
+        return map_reducer.reduce(data_list)
+    # end map_reduce
 
 # end PySpeechesDocumentCollection

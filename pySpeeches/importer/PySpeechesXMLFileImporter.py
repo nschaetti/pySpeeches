@@ -58,7 +58,7 @@ class PySpeechesXMLFileImporter(PySpeechesImporter):
         tree = etree.parse(file_name)
 
         # Author's name
-        author_id = os.path.splitext(file_name)[0]
+        author_id = os.path.splitext(os.path.basename(file_name))[0]
 
         # For each documents
         index = 0
@@ -78,7 +78,7 @@ class PySpeechesXMLFileImporter(PySpeechesImporter):
                                           tokens=tokens, doc_id=doc_id)
 
             # Add document
-            corpus.add_document(document)
+            corpus.add_document(document, check_doublon=self._source.get_check_doublon())
 
             # Next index
             index += 1

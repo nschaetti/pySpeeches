@@ -20,17 +20,17 @@
 #
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
+# Import package
+from .PySpeechesDict import PySpeechesDict
+from .PySpeechesDocumentCollection import PySpeechesDocumentCollection
 import sys
 
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-# Import package
-from .PySpeechesDict import PySpeechesDict
-
 
 # A document
-class PySpeechesDocument:
+class PySpeechesDocument(object):
 
     # Constructor
     def __init__(self, title, author, date, url, language, tokens, doc_id=-1, location="", abstract="", video=False,
@@ -58,26 +58,31 @@ class PySpeechesDocument:
         self._abstract = abstract
         self._video = video
         self._audio = audio
+        self._current_token = 0
 
         # Create directory
-        self._create_dictionary(tokens)
+        #self._create_dictionary(tokens)
     # end __init__
 
     #################################
-    # DICTIONARY
+    # ITERATOR
     #################################
 
-    # Create dictionary
-    def _create_dictionary(self, tokens):
+    # Iter
+    def __iter__(self):
+        return self
+    # end __iter__
 
-        # Dictionary
-        self._dictionary = PySpeechesDict()
-
-        # For each tokens
-        for token in tokens:
-            self._dictionary.increment_token_count(token)
-        # end for
-    # end _create_dictionary
+    # Next
+    def next(self):
+        if self._current_token >= self._n_tokens:
+            self._current_token = 0
+            raise StopIteration
+        else:
+            self._current_token += 1
+            return self._tokens[self._current_token - 1]
+        # end if
+    # end next
 
     #################################
     # GET FUNCTIONS
@@ -86,8 +91,8 @@ class PySpeechesDocument:
     # Get document's title
     def get_title(self):
         """
-
-        :return:
+        Get document's title
+        :return: The document's title.
         """
         return self._title
     # end get_title
@@ -95,8 +100,8 @@ class PySpeechesDocument:
     # Get document's author
     def get_author(self):
         """
-
-        :return:
+        Get document's author
+        :return: The document's author.
         """
         return self._author
     # end get_author
@@ -104,8 +109,8 @@ class PySpeechesDocument:
     # Get document's date
     def get_date(self):
         """
-
-        :return:
+        Get document's date
+        :return: The document's date.
         """
         return self._date
     # end get_date
@@ -113,8 +118,8 @@ class PySpeechesDocument:
     # Get document's URL
     def get_url(self):
         """
-
-        :return:
+        Get document's URL
+        :return: The document's URL.
         """
         return self._url
     # end get_url
@@ -122,8 +127,8 @@ class PySpeechesDocument:
     # Get document's language
     def get_language(self):
         """
-
-        :return:
+        Get document's language
+        :return: The document's language.
         """
         return self._language
     # end get_language
@@ -131,8 +136,8 @@ class PySpeechesDocument:
     # Get document's tokens
     def get_tokens(self):
         """
-
-        :return:
+        Get document's tokens.
+        :return: Document's tokens.
         """
         return self._tokens
     # end get_tokens
@@ -140,26 +145,17 @@ class PySpeechesDocument:
     # Get document's doc id
     def get_doc_id(self):
         """
-
-        :return:
+        Get document's doc id.
+        :return: Document's ID.
         """
         return self._doc_id
     # end get_doc_id
 
-    # Get the dictionary
-    def get_dictionary(self):
-        """
-        Get the dictionary
-        :return: The dictionary
-        """
-        return self._dictionary
-    # end get_dictionary
-
     # Get size
     def get_n_tokens(self):
         """
-
-        :return:
+        Get the tokens count.
+        :return: The tokens count.
         """
         return self._n_tokens
     # end get_size
@@ -171,9 +167,8 @@ class PySpeechesDocument:
     # Set document's ID
     def set_doc_id(self, doc_id):
         """
-
-        :param doc_id:
-        :return:
+        Set document's ID
+        :param doc_id: Document's ID.
         """
         self._doc_id = doc_id
     # end set_doc_id
@@ -181,11 +176,24 @@ class PySpeechesDocument:
     # Set document's date
     def set_date(self, date):
         """
-
-        :param date:
-        :return:
+        Set document's date
+        :param date: Document's date.
         """
         self._date = date
     # end set_date
+
+    ##################################
+    # MAP FUNCTIONS
+    ##################################
+
+    # Map reduce
+    def map(self, map_reducer):
+        """
+        Map reduce
+        :param map_reducer: The PySpeechesMapReducer object.
+        :return: The data computed by the PySpeechesMapReducer object.
+        """
+        return map_reducer.map(self)
+    # end map
 
 # end PySpeechesDocument
