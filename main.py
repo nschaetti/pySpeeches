@@ -108,7 +108,7 @@ if __name__ == "__main__":
         for author in authors:
             print(author.get_name())
     # CHANGE DATE
-    elif args.action == "change_date":
+    elif args.ac                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        tion == "change_date":
         if args.doc_id != -1 and args.date != "":
             corpus.set_document_date(args.doc_id, datetime.datetime.strptime(args.date, "%d/%m/%Y"))
         else:
