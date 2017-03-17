@@ -73,15 +73,18 @@ class PySpeechesXMLFileImporter(PySpeechesImporter):
             # Create author
             author = corpus.add_author(author_id)
 
-            # New document
-            document = PySpeechesDocument(title=title, author=author, date=d_date, url="", language="",
-                                          tokens=tokens, doc_id=doc_id)
+            # No empty document
+            if len(tokens) != 1 or tokens[0] != "":
+                # New document
+                document = PySpeechesDocument(title=title, author=author, date=d_date, url="", language="",
+                                              tokens=tokens, doc_id=doc_id)
 
-            # Add document
-            corpus.add_document(document, check_doublon=self._source.get_check_doublon())
+                # Add document
+                corpus.add_document(document, check_doublon=self._source.get_check_doublon())
 
-            # Next index
-            index += 1
+                # Next index
+                index += 1
+            # end if
         # end doc
     # end import_source
 
