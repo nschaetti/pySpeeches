@@ -26,6 +26,7 @@ from PySpeechesSource import PySpeechesSource
 import json
 import os
 import logging
+import sys
 
 
 # Read config file
@@ -43,6 +44,8 @@ class PySpeechesConfig:
         self._audio_dir = "."
         self._logger = logging.getLogger()
         self._logger.setLevel(logging.WARNING)
+        self._stream = logging.StreamHandler(sys.stdout)
+        self._logger.addHandler(self._stream)
     # end __init__
 
     # Change log level
@@ -53,6 +56,7 @@ class PySpeechesConfig:
         :return:
         """
         self._logger.setLevel(log_level)
+        self._stream.setLevel(log_level)
     # end set_log_level
 
     # Change log format
@@ -64,6 +68,7 @@ class PySpeechesConfig:
         """
         formatter = logging.Formatter(log_format)
         self._logger.setFormatter(formatter)
+        self._stream.setFormatter(formatter)
     # end set_log_format
 
     # Log info
