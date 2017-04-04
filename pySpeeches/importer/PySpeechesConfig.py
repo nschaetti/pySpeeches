@@ -25,6 +25,7 @@ from pySpeeches.patterns.Singleton import *
 from PySpeechesSource import PySpeechesSource
 import json
 import os
+import logging
 
 
 # Read config file
@@ -40,7 +41,60 @@ class PySpeechesConfig:
         self._corpus = None
         self._video_dir = "."
         self._audio_dir = "."
+        self._logger = logging.getLogger()
+        self._logger.setLevel(logging.WARNING)
     # end __init__
+
+    # Change log level
+    def set_log_level(self, log_level):
+        """
+
+        :param log_level:
+        :return:
+        """
+        self._logger.setLevel(log_level)
+    # end set_log_level
+
+    # Change log format
+    def set_log_format(self, log_format):
+        """
+
+        :param log_format:
+        :return:
+        """
+        formatter = logging.Formatter(log_format)
+        self._logger.setFormatter(formatter)
+    # end set_log_format
+
+    # Log info
+    def info(self, log):
+        """
+
+        :param log:
+        :return:
+        """
+        self._logger.info(log)
+    # end log
+
+    # Log warning
+    def warning(self, log):
+        """
+
+        :param log:
+        :return:
+        """
+        self._logger.warning(log)
+    # end log
+
+    # Log debug
+    def debug(self, log):
+        """
+
+        :param log:
+        :return:
+        """
+        self._logger.debug(log)
+    # end
 
     # Load a source file
     def load(self, filename):
