@@ -23,6 +23,7 @@
 # Import package
 from .PySpeechesDocumentCollection import *
 from .PySpeechesAuthor import *
+from pySpeeches.importer.PySpeechesConfig import PySpeechesConfig
 
 
 # Read config file
@@ -87,14 +88,19 @@ class PySpeechesCorpus(PySpeechesDocumentCollection):
         """
         # Print info
         if not check_doublon or not self._document_exists(document):
-            print("Adding %s to document collection %s with author %s" % (document.get_title(), self._name, document.get_author().get_name()))
-            print("\033[94mNb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, Nb authors : %-3d\033[0m"
-                  % (self.get_size(),
-                     self.get_n_tokens(),
-                     self.get_max_doc_id(),
-                     self.get_n_authors()))
+            PySpeechesConfig.Instance().info("Adding %s to document collection %s with author %s" % (document.get_title(), self._name, document.get_author().get_name()))
+            #print("Adding %s to document collection %s with author %s" % (document.get_title(), self._name, document.get_author().get_name()))
+            PySpeechesConfig.Instance().info("Nb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, "
+                                             "Nb authors : %-3d" % (self.get_size(), self.get_n_tokens(),
+                                                                    self.get_max_doc_id(),
+                                                                    self.get_n_authors()))
+            #print("\033[94mNb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, Nb authors : %-3d\033[0m"
+            #      % (self.get_size(),
+            #         self.get_n_tokens(),
+            #         self.get_max_doc_id(),
+            #         self.get_n_authors()))
         else:
-            print("Already in the corpus %s" % (document.get_title()))
+            PySpeechesConfig.Instance().info("Already in the corpus %s" % (document.get_title()))
         # end if
 
         # Call PySpeechesDocumentCollection

@@ -26,6 +26,7 @@ import shutil
 import json
 from bs4 import BeautifulSoup
 import os
+from pySpeeches.importer.PySpeechesConfig import PySpeechesConfig
 
 
 # Import a directory recursively
@@ -44,7 +45,7 @@ class PySpeechesMillerCenterDownloader(object):
         :return:
         """
         if not os.path.exists(dest):
-            print("Downloading file %s" % url)
+            PySpeechesConfig().Instance().info("Downloading file %s" % url)
             response = requests.get(url, stream=True)
             with open(dest, 'wb') as out_file:
                 shutil.copyfileobj(response.raw, out_file)
@@ -59,7 +60,7 @@ class PySpeechesMillerCenterDownloader(object):
         document = dict()
 
         # Get speech list
-        print("Downloading speech from %s" % speech['link'])
+        PySpeechesConfig().Instance().info("Downloading speech from %s" % speech['link'])
         web_page = BeautifulSoup(
             requests.get(speech['link']).text,
             'html.parser'
@@ -70,8 +71,6 @@ class PySpeechesMillerCenterDownloader(object):
         if len(transcript_element) == 0:
             transcript_element = web_page.find_all('div', {'class': 'view-transcript'})
         # end if
-        #print(transcript_element)
-        #print(len(transcript_element))
 
         # Transcript
         document['transcript'] = ""
@@ -209,7 +208,7 @@ class PySpeechesMillerCenterDownloader(object):
 
             # Get HTML data
             if 'data' not in json_data[-1]:
-                print(json_data)
+                PySpeechesConfig().Instance().debug(json_data)
             # end if
             html_data = json_data[-1]['data']
 

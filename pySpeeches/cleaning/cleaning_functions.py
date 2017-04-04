@@ -23,6 +23,7 @@
 from __future__ import unicode_literals
 import re
 import unicodedata
+from pySpeeches.importer.PySpeechesConfig import PySpeechesConfig
 
 #
 # List of contractions to replace in the texts.
@@ -374,8 +375,11 @@ class PyCleaningTool:
         sp = PyCleaningTool.get_next_speaker(text)
         if not sp['name']:
             return {'written': text, 'oral': ''}
+        # end if
         if sp['start'] > 3:
-            print('Name: %s, Start: %s, Text: %s' % (sp['name'], sp['start'], text[sp['start']:sp['start']+20]))
+            PySpeechesConfig().Instance().info('Name: %s, Start: %s, Text: %s' % (sp['name'], sp['start'],
+                                                                                  text[sp['start']:sp['start']+20]))
+        # end if
         # Secondly, extract all Obama's preview speeches, if he begins to speak
         # Note that the preview speeches of Obama is considered as written speech
         while sp['name'] == 'obama':
