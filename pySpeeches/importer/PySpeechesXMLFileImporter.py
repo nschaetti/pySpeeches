@@ -54,7 +54,7 @@ class PySpeechesXMLFileImporter(PySpeechesImporter):
         corpus = config.get_corpus()
 
         # Parse XML file
-        PySpeechesConfig.Instance().info("Parsing XML file %s" % file_name)
+        PySpeechesConfig.Instance().debug("Parsing XML file %s" % file_name)
         tree = etree.parse(file_name)
 
         # Author's name

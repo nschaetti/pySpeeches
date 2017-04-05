@@ -87,21 +87,15 @@ class PySpeechesCorpus(PySpeechesDocumentCollection):
         :return:
         """
         # Print info
-        """if not check_doublon or not self._document_exists(document):
-            #PySpeechesConfig.Instance().info("Adding %s to document collection %s with author %s" % (document.get_title(), self._name, document.get_author().get_name()))
-            #print("Adding %s to document collection %s with author %s" % (document.get_title(), self._name, document.get_author().get_name()))
-            PySpeechesConfig.Instance().info("Nb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, "
+        if not check_doublon or not self._document_exists(document):
+            PySpeechesConfig.Instance().debug("Adding %s to document collection %s with author %s" % (document.get_title(), self._name, document.get_author().get_name()))
+            PySpeechesConfig.Instance().debug("Nb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, "
                                              "Nb authors : %-3d" % (self.get_size(), self.get_n_tokens(),
                                                                     self.get_max_doc_id(),
                                                                     self.get_n_authors()))
-            #print("\033[94mNb. documents : %-6d, Nb. tokens : %-7d, Max. doc id : %-6d, Nb authors : %-3d\033[0m"
-            #      % (self.get_size(),
-            #         self.get_n_tokens(),
-            #         self.get_max_doc_id(),
-            #         self.get_n_authors()))
         else:
-            PySpeechesConfig.Instance().info("Already in the corpus %s" % (document.get_title()))
-        # end if"""
+            PySpeechesConfig.Instance().warning("Already in the corpus %s" % (document.get_title()))
+        # end if
 
         # Call PySpeechesDocumentCollection
         PySpeechesDocumentCollection.add_document(self, document, check_doublon)
